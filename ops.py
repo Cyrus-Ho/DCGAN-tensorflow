@@ -26,6 +26,7 @@ else:
   def concat(tensors, axis, *args, **kwargs):
     return tf.concat(tensors, axis, *args, **kwargs)
 
+
 class batch_norm(object):
   def __init__(self, epsilon=1e-5, momentum = 0.9, name="batch_norm"):
     with tf.variable_scope(name):
@@ -41,6 +42,7 @@ class batch_norm(object):
                       scale=True,
                       is_training=train,
                       scope=self.name)
+
 
 def conv_cond_concat(x, y):
   """Concatenate conditioning vector on feature map axis."""
@@ -89,6 +91,7 @@ def deconv2d(input_, output_shape,
      
 def lrelu(x, leak=0.2, name="lrelu"):
   return tf.maximum(x, leak*x)
+
 
 def linear(input_, output_size, scope=None, stddev=0.02, bias_start=0.0, with_w=False):
   shape = input_.get_shape().as_list()
